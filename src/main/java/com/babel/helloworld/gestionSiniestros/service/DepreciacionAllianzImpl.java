@@ -8,8 +8,10 @@ public class DepreciacionAllianzImpl implements Depreciacion{
     @Override
     public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien) {
         Double valoracion = bien.valorCompra();
-        for(int anyo = 0; anyo<=bien.nombre().getTiempoAmortizacion(); anyo++){
-
+        Double deprecacion = (double) (1 / bien.nombre().getTiempoAmortizacion());
+        int anyosAmortizados = bien.getAnyosAmortizados(fechaSiniestro).getYears();
+        for(int anyo = 0; anyo<=anyosAmortizados; anyo++){
+            valoracion =- valoracion*deprecacion;
         }
         return valoracion + valoracion*0.05;
     }
