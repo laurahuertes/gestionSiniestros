@@ -10,5 +10,4 @@ public record Bien(TipoBien nombre, Double valorCompra, LocalDate fechaCompra) {
         Period periodo = Period.between(fechaCompra, fechaSiniestro);
         return periodo;
     }
-
 }
