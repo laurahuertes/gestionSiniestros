@@ -1,9 +1,11 @@
 package com.babel.helloworld.gestionSiniestros.service;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Component
 public class DepreciacionGeneralImpl implements Depreciacion {
     private Double valorResidual;
 
@@ -12,12 +14,13 @@ public class DepreciacionGeneralImpl implements Depreciacion {
         int tiempoAmortizacion = bien.nombre().getTiempoAmortizacion();
         double valorCompra = bien.valorCompra();
         int ayosCompraBien = bien.getAnyosAmortizados(fechaSiniestro).getYears();
-        int devaluacion = tiempoAmortizacion / 100;
+        double devaluacion = (double) 1 / tiempoAmortizacion;
         double valorFinal = valorCompra;
-        double valorResidual = valorCompra * 0.15;
+        double valorResidual = (valorCompra * 0.15);
 
         for (int i = 0; i < ayosCompraBien; i++) {
-            valorFinal = valorFinal - (valorFinal * devaluacion);
+            valorFinal = (valorFinal - (valorFinal * devaluacion));
+            System.out.println("valorFinal: " + valorFinal);
         }
 
         if (valorResidual > valorFinal) {

@@ -1,15 +1,16 @@
 package com.babel.helloworld.gestionSiniestros.service;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 
-public class DepreciacionMapfreImpl implements Depreciacion
-{
+@Component
+public class DepreciacionMapfreImpl implements Depreciacion {
     private final double VALOR_RESIDUAL = 0.17;
 
     @Override
-    public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien)
-    {
+    public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien) {
         /*
         -La depreciación no es acumulada.
         Por tanto, en el ejemplo anterior el cálculo sería: 1500 - (1500*0.2) = 1200 € -> Valor real
@@ -26,8 +27,7 @@ public class DepreciacionMapfreImpl implements Depreciacion
 
 
         double valorMinimo = bien.valorCompra() * VALOR_RESIDUAL;
-        if (valor < valorMinimo)
-        {
+        if (valor < valorMinimo) {
             valor = valorMinimo;
         }
 
