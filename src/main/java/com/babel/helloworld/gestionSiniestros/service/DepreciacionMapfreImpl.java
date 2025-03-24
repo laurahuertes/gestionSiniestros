@@ -22,7 +22,7 @@ public class DepreciacionMapfreImpl implements Depreciacion
 
         double porcentajeDepreciacion = (double) 1 / tiempoAmortizacion;
 
-        double valor = bien.valorCompra() * (1 - porcentajeDepreciacion * anyosCompra);
+        double valor = bien.valorCompra() - (bien.valorCompra() * (porcentajeDepreciacion * anyosCompra));
 
 
         double valorMinimo = bien.valorCompra() * VALOR_RESIDUAL;
