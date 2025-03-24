@@ -11,7 +11,7 @@ public class DepreciacionAllianzImpl implements Depreciacion{
         Double deprecacion = (double) (1 / bien.nombre().getTiempoAmortizacion());
         int anyosAmortizados = bien.getAnyosAmortizados(fechaSiniestro).getYears();
         for(int anyo = 0; anyo<=anyosAmortizados; anyo++){
-            valoracion =- valoracion*deprecacion;
+            valoracion -= valoracion*deprecacion;
         }
         return valoracion + valoracion*0.05;
     }
