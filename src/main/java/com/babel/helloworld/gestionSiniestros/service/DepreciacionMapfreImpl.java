@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class DepreciacionMapfreImpl implements Depreciacion
 {
-    private final double valorResidual = 0.17;
+    private final double VALOR_RESIDUAL = 0.17;
 
     @Override
     public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien)
@@ -25,7 +25,7 @@ public class DepreciacionMapfreImpl implements Depreciacion
         double valor = bien.valorCompra() * (1 - porcentajeDepreciacion * anyosCompra);
 
 
-        double valorMinimo = bien.valorCompra() * valorResidual;
+        double valorMinimo = bien.valorCompra() * VALOR_RESIDUAL;
         if (valor < valorMinimo)
         {
             valor = valorMinimo;
