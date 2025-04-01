@@ -1,22 +1,37 @@
 package com.babel.helloworld.gestionSiniestros.service;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.Period;
 
-public class DepreciacionMutuaMadrilenaImpl implements Depreciacion{
+@Component
+@Qualifier("depreciacion")
+
+public class DepreciacionMutuaMadrilenaImpl implements Depreciacion {
 
     private Double residualValue = 0.1;
 
     @Override
     public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien) {
-        Double valoracion = bien.valorCompra();
-        Double valoracionResidual = bien.valorCompra()*residualValue;
-        Double deprecacion = (double) (1 / (bien.nombre().getTiempoAmortizacion() * 2 * 365));
-        int diasAmortizados = bien.getAnyosAmortizados(fechaSiniestro).getDays();
+        double valoracion = bien.valorCompra();
+        double valoracionResidual = bien.valorCompra() * residualValue;
+        double deprecacion = (double) 1 / (bien.nombre().getTiempoAmortizacion() * 2 * 365);
+        System.out.println("deprecacion:" + deprecacion);
+
+        int diasAmortizados = calcularDias(bien.getAnyosAmortizados(fechaSiniestro));
+
         for (int dia = 0; dia < diasAmortizados; dia++) {
-                valoracion -= valoracion * deprecacion;
+            valoracion -= valoracion * deprecacion;
+            System.out.println("valoracion:" + valoracion);
         }
         return Math.max(valoracion, valoracionResidual);
+    }
+
+    private int calcularDias(Period period) {
+        int diasAmortizacion = period.getYears() * 365 + period.getMonths() * 30 + period.getDays();
+        return diasAmortizacion;
     }
 }
