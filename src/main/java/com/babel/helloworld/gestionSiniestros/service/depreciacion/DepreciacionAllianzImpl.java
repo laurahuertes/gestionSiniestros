@@ -1,6 +1,6 @@
-package com.babel.helloworld.gestionSiniestros.service;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion;
 
-import com.babel.helloworld.gestionSiniestros.model.Bien;
+import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ public class DepreciacionAllianzImpl implements Depreciacion {
     @Override
     public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien) {
         double valoracion = bien.valorCompra();
-        int tiempoAmortizacion = bien.nombre().getTiempoAmortizacion();
+        int tiempoAmortizacion = bien.tipoBien().getTiempoAmortizacion();
         double deprecacion = (double) 1 / tiempoAmortizacion;
         int anyosAmortizados = bien.getAnyosAmortizados(fechaSiniestro).getYears();
 
@@ -21,5 +21,10 @@ public class DepreciacionAllianzImpl implements Depreciacion {
 
         }
         return valoracion + valoracion * 0.05;
+    }
+
+    @Override
+    public String getId() {
+        return "allianz";
     }
 }

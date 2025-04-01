@@ -1,8 +1,8 @@
 package com.babel.helloworld.gestionSiniestros;
 
-import com.babel.helloworld.gestionSiniestros.model.Bien;
-import com.babel.helloworld.gestionSiniestros.model.TipoBien;
-import com.babel.helloworld.gestionSiniestros.service.*;
+import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
+import com.babel.helloworld.gestionSiniestros.model.Bien.TipoBien;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -45,7 +45,7 @@ public class GestionSiniestrosImpl implements CommandLineRunner {
         System.out.println("Fecha de compra del bien: ");
         LocalDate fechaCompraBien = LocalDate.parse(scanner.nextLine());
 
-        Bien bien = new Bien(tipoBien, valorCompra, fechaCompraBien);
+        Bien bien = new Bien("nombre", tipoBien, valorCompra, fechaCompraBien);
         Depreciacion depreciacion;
 
         System.out.println("De acuerdo, ¿qué seguro tienes contratado? ");

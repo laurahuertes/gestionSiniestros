@@ -1,4 +1,4 @@
-package com.babel.helloworld.gestionSiniestros.model;
+package com.babel.helloworld.gestionSiniestros.model.Bien;
 
 public enum TipoBien {
 

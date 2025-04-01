@@ -1,6 +1,6 @@
-package com.babel.helloworld.gestionSiniestros.service;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion;
 
-import com.babel.helloworld.gestionSiniestros.model.Bien;
+import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ public class DepreciacionMapfreImpl implements Depreciacion {
 
         int anyosCompra = bien.getAnyosAmortizados(fechaSiniestro).getYears();
 
-        int tiempoAmortizacion = bien.nombre().getTiempoAmortizacion();
+        int tiempoAmortizacion = bien.tipoBien().getTiempoAmortizacion();
 
         double porcentajeDepreciacion = (double) 1 / tiempoAmortizacion;
 
@@ -35,5 +35,10 @@ public class DepreciacionMapfreImpl implements Depreciacion {
         }
 
         return valor;
+    }
+
+    @Override
+    public String getId() {
+        return "mapfre";
     }
 }

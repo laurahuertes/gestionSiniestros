@@ -1,6 +1,6 @@
-package com.babel.helloworld.gestionSiniestros.service;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion;
 
-import com.babel.helloworld.gestionSiniestros.model.Bien;
+import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class DepreciacionMutuaMadrilenaImpl implements Depreciacion {
     public Double CalcularPrecioBien(LocalDate fechaSiniestro, Bien bien) {
         double valoracion = bien.valorCompra();
         double valoracionResidual = bien.valorCompra() * residualValue;
-        double deprecacion = (double) 1 / (bien.nombre().getTiempoAmortizacion() * 2 * 365);
+        double deprecacion = (double) 1 / (bien.tipoBien().getTiempoAmortizacion() * 2 * 365);
         System.out.println("deprecacion:" + deprecacion);
 
         int diasAmortizados = calcularDias(bien.getAnyosAmortizados(fechaSiniestro));
@@ -33,5 +33,10 @@ public class DepreciacionMutuaMadrilenaImpl implements Depreciacion {
     private int calcularDias(Period period) {
         int diasAmortizacion = period.getYears() * 365 + period.getMonths() * 30 + period.getDays();
         return diasAmortizacion;
+    }
+
+    @Override
+    public String getId() {
+        return "mutuaMadrilena";
     }
 }
