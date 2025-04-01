@@ -1,11 +1,14 @@
 package com.babel.helloworld.gestionSiniestros.service;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
+@Qualifier("depreciacion")
+
 public class DepreciacionGeneralImpl implements Depreciacion {
     private Double valorResidual;
 

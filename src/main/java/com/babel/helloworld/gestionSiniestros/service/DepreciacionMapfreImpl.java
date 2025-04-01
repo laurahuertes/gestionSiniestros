@@ -1,11 +1,14 @@
 package com.babel.helloworld.gestionSiniestros.service;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
+@Qualifier("depreciacion")
+
 public class DepreciacionMapfreImpl implements Depreciacion {
     private final double VALOR_RESIDUAL = 0.17;
 
