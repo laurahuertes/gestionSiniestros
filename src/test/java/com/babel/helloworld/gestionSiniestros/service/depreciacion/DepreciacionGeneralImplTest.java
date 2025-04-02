@@ -2,6 +2,7 @@ package com.babel.helloworld.gestionSiniestros.service.depreciacion;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import com.babel.helloworld.gestionSiniestros.model.Bien.TipoBien;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionGeneralImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

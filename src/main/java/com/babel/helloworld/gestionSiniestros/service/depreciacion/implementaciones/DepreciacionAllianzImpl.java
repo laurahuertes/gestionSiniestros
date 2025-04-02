@@ -1,6 +1,7 @@
-package com.babel.helloworld.gestionSiniestros.service.depreciacion;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.Depreciacion;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 

@@ -3,6 +3,10 @@ package com.babel.helloworld.gestionSiniestros;
 import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import com.babel.helloworld.gestionSiniestros.model.Bien.TipoBien;
 import com.babel.helloworld.gestionSiniestros.service.depreciacion.*;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionAllianzImpl;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionGeneralImpl;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionMapfreImpl;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionMutuaMadrilenaImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
