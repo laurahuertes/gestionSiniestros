@@ -21,16 +21,12 @@ public class DepreciacionGeneralImpl implements Depreciacion {
         double devaluacion = (double) 1 / tiempoAmortizacion;
         double valorFinal = valorCompra;
         double valorResidual = (valorCompra * 0.15);
-
         for (int i = 0; i < ayosCompraBien; i++) {
             valorFinal = (valorFinal - (valorFinal * devaluacion));
-            System.out.println("valorFinal: " + valorFinal);
         }
-
         if (valorResidual > valorFinal) {
             valorFinal = valorResidual;
         }
-
         return valorFinal;
     }
 
