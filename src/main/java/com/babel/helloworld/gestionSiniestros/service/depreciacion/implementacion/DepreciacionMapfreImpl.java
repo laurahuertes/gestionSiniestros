@@ -1,4 +1,4 @@
-package com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion.implementacion;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import com.babel.helloworld.gestionSiniestros.service.depreciacion.Depreciacion;

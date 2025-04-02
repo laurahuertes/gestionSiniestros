@@ -1,4 +1,4 @@
-package com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones;
+package com.babel.helloworld.gestionSiniestros.service.depreciacion.implementacion;
 
 import com.babel.helloworld.gestionSiniestros.model.Bien.Bien;
 import com.babel.helloworld.gestionSiniestros.service.depreciacion.Depreciacion;
@@ -20,13 +20,11 @@ public class DepreciacionMutuaMadrilenaImpl implements Depreciacion {
         double valoracion = bien.valorCompra();
         double valoracionResidual = bien.valorCompra() * residualValue;
         double deprecacion = (double) 1 / (bien.tipoBien().getTiempoAmortizacion() * 2 * 365);
-        System.out.println("deprecacion:" + deprecacion);
 
         int diasAmortizados = calcularDias(bien.getAnyosAmortizados(fechaSiniestro));
 
         for (int dia = 0; dia < diasAmortizados; dia++) {
             valoracion -= valoracion * deprecacion;
-            System.out.println("valoracion:" + valoracion);
         }
         return Math.max(valoracion, valoracionResidual);
     }

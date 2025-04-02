@@ -5,19 +5,14 @@ import com.babel.helloworld.gestionSiniestros.model.Bien.TipoBien;
 import com.babel.helloworld.gestionSiniestros.model.Siniestro.Siniestro;
 import com.babel.helloworld.gestionSiniestros.model.Siniestro.TipoIndemnizacion;
 import com.babel.helloworld.gestionSiniestros.service.depreciacion.*;
-import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionAllianzImpl;
-import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionGeneralImpl;
-import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionMapfreImpl;
-import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementaciones.DepreciacionMutuaMadrilenaImpl;
+import com.babel.helloworld.gestionSiniestros.service.depreciacion.implementacion.DepreciacionGeneralImpl;
 import com.babel.helloworld.gestionSiniestros.service.valoracion.Valoracion;
-import com.babel.helloworld.gestionSiniestros.service.valoracion.ValoracionImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Scanner;
 
 @Component
 public class GestionSiniestrosImpl implements CommandLineRunner {
